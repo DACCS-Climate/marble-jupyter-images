@@ -1,0 +1,80 @@
+name: marble
+channels:
+  - conda-forge
+  - cdat
+  - defaults
+
+dependencies:
+  - pip
+  # xarray includes: pandas
+  - xarray
+  - netcdf4
+  - pydap
+  # birdy incudes: owslib, lxml
+  - birdy
+  - h5netcdf
+  - matplotlib
+  - cartopy
+  - bokeh
+  - dask
+  - flox
+  - cf_xarray
+  - cfgrib
+  - yq
+  - jsonschema
+  - nbval
+  # Jupyter plugins-------------------------------------------------
+
+  - jupytext
+  # jupyterlab extension for git
+  - jupyterlab-git
+  # jupyterlab extension for conda, now is mamba_gator. This installs both jupyter_conda and mamba_gator.
+  # https://anaconda.org/conda-forge/jupyter_conda
+  - jupyter_conda
+  # A Jupyter extension to make, download and extract archive files.
+  # https://github.com/jupyterlab-contrib/jupyter-archive
+  - jupyter-archive
+  # https:://github.com/jupyterhub/jupyter-server-proxy
+  - jupyter-server-proxy
+  # https://github.com/dask/dask-labextension
+  - dask-labextension
+  - pytest
+  - nc-time-axis
+  - aiohttp
+  - scikit-image
+  - ipyleaflet
+  - ipywidgets
+  - regionmask
+  - siphon
+  - gcsfs
+  - zarr
+  - s3fs
+  - paramiko
+  - urlpath
+  - seaborn
+  - statsmodels
+  - pre-commit
+  # https://github.com/roocs/clisops
+  - clisops
+  # Universal Regridder for Geospatial Data
+  # https://github.com/pangeo-data/xESMF
+  # xesmf imcludes: numba, esmpy
+  - xesmf
+  # Sensitivity Analysis Library
+  # https://anaconda.org/conda-forge/salib, https://github.com/SALib/SALib
+  - salib
+  - nodejs
+  - pip:
+    - requests-magpie
+
+# Need:
+
+
+# Maybe good to have:
+  # - intake
+  # - intake-esm
+  # - intake-xarray
+  # - intake-geopandas
+  # - intake-thredds
+  # - jupyter (what good is it here?)
+  # - jupyter_bokeh (is it needed?)
