@@ -25,6 +25,10 @@ build:
 run:
 	docker run -d --rm -p 10001:8888 --name ${TEST_CONTAINER_NAME} ${TEST_IMAGE_TAG}
 
+stop:
+	docker stop ${TEST_CONTAINER_NAME}
+
+
 token:
 	echo "Token:" $(shell docker logs ${TEST_CONTAINER_NAME} 2>&1 | grep token | head -n 1 | cut -d "=" -f 2)
 
