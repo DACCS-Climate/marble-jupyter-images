@@ -23,6 +23,7 @@ dependencies:
   - yq
   - jsonschema
   - nbval
+  - jupyterlab=3.6.7
   # Jupyter plugins-------------------------------------------------
 
   - jupytext
@@ -38,6 +39,7 @@ dependencies:
   - jupyter-server-proxy
   # https://github.com/dask/dask-labextension
   - dask-labextension
+  - jupyter_bokeh=3.0.7
   - pytest
   - nc-time-axis
   - aiohttp

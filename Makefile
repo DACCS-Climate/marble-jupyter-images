@@ -23,7 +23,7 @@ build:
 	docker build --tag ${TEST_IMAGE_TAG} .
 
 run:
-	docker run -d --rm -p 10001:8888 --name ${TEST_CONTAINER_NAME} ${TEST_IMAGE_TAG}
+	docker run -d --rm -p 10001:8888 -v "${PWD}/jupyter_bokeh_tests":/home/jovyan/work/jupyter_bokeh_tests --name ${TEST_CONTAINER_NAME} ${TEST_IMAGE_TAG}
 
 stop:
 	docker stop ${TEST_CONTAINER_NAME}
