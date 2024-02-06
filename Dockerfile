@@ -25,6 +25,7 @@ ENV PATH="/opt/conda/envs/marble/bin:$PATH"
 RUN python -m ipykernel install --name Marble
 
 RUN fix-permissions "/home/${NB_USER}/.ipython"
+RUN fix-permissions "/home/${NB_USER}/.cache"
 
 USER ${NB_UID}
 
