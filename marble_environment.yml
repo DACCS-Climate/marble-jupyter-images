@@ -26,9 +26,6 @@ dependencies:
   - jupyterlab=3.6.7
   # Jupyter plugins-------------------------------------------------
   - jupytext
-  # jupyterlab extension for conda, now is mamba_gator. This installs both jupyter_conda and mamba_gator.
-  # https://anaconda.org/conda-forge/jupyter_conda
-  - jupyter_conda
   # https:://github.com/jupyterhub/jupyter-server-proxy
   - jupyter-server-proxy
   # https://github.com/dask/dask-labextension
