@@ -22,11 +22,16 @@ RUN set -x && \
     mamba clean --all -f -y
 
 USER root
-# Install the marble environment kernel. The installation command has to be run as root as the 
-# information about the new kernel is installed in /usr/local/share/jupyter
+# New kernels are installed in /usr/local/share/jupyter. Changing permissions of this location to be writable by the user.
+# This opens the possibility that in the jupyter environment a user can create a new environment and install a new kernel.
+RUN mkdir -p /usr/local/share/jupyter
+RUN fix-permissions /usr/local/share/jupyter
+
+USER ${NB_UID}
 ENV PATH="$MAMBA_ROOT_PREFIX/envs/marble/bin:$PATH"
 RUN python -m ipykernel install --name Marble
 
+USER root
 # These need to be run as root
 RUN fix-permissions "/home/${NB_USER}/.ipython"
 RUN fix-permissions "/home/${NB_USER}/.cache"
