@@ -59,6 +59,9 @@ dependencies:
   - nodejs
   - esgf-pyclient
   - geopy
+  - xlrd
+  - pillow
+  - openpyxl
   - pip:
     - requests-magpie
     - pystac-client
