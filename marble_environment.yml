@@ -67,6 +67,9 @@ dependencies:
     - requests-magpie
     - pystac-client
     - xncml
+    # https://pypi.org/project/fstd2nc/
+    # Converts RPN standard files (from Environment Canada) to netCDF files.
+    - fstd2nc
 
 # Need:
 
