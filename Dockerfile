@@ -12,6 +12,7 @@ USER root
 
 COPY marble_environment.yml /environment.yml
 
+USER ${NB_UID}
 
 RUN set -x && \
 # Installing jupyter lab extensions in the main environment
@@ -20,12 +21,16 @@ RUN set -x && \
     mamba env create -f /environment.yml && \
     mamba clean --all -f -y
 
-ENV PATH="/opt/conda/envs/marble/bin:$PATH"
-
+USER root
+# Install the marble environment kernel. The installation command has to be run as root as the 
+# information about the new kernel is installed in /usr/local/share/jupyter
+ENV PATH="$MAMBA_ROOT_PREFIX/envs/marble/bin:$PATH"
 RUN python -m ipykernel install --name Marble
 
+# These need to be run as root
 RUN fix-permissions "/home/${NB_USER}/.ipython"
 RUN fix-permissions "/home/${NB_USER}/.cache"
+
 
 USER ${NB_UID}
 
