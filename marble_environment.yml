@@ -57,8 +57,11 @@ dependencies:
   # https://anaconda.org/conda-forge/salib, https://github.com/SALib/SALib
   - salib
   - nodejs
+  - esgf-pyclient
   - pip:
     - requests-magpie
+    - pystac-client
+    - xncml
 
 # Need:
 
