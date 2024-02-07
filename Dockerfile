@@ -38,6 +38,10 @@ USER ${NB_UID}
 ENV PATH="$MAMBA_ROOT_PREFIX/envs/marble/bin:$PATH"
 RUN python -m ipykernel install --name Marble
 
+# For import xesmf since esmf-8.4.0, see
+# https://github.com/conda-forge/esmf-feedstock/issues/91
+ENV ESMFMKFILE=/opt/conda/envs/marble/lib/esmf.mk
+
 USER root
 # These need to be run as root
 RUN fix-permissions "/home/${NB_USER}/.ipython"
