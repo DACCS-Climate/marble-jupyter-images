@@ -62,6 +62,7 @@ dependencies:
   - xlrd
   - pillow
   - openpyxl
+  - pyogrio
   - pip:
     - requests-magpie
     - pystac-client
