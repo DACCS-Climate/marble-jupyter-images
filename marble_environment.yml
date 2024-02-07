@@ -25,7 +25,6 @@ dependencies:
   - nbval
   - jupyterlab=3.6.7
   # Jupyter plugins-------------------------------------------------
-  - jupytext
   # https:://github.com/jupyterhub/jupyter-server-proxy
   - jupyter-server-proxy
   # https://github.com/dask/dask-labextension
