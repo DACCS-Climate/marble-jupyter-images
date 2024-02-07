@@ -63,6 +63,11 @@ dependencies:
   - pillow
   - openpyxl
   - pyogrio
+  - intake
+  - intake-esm
+  - intake-xarray
+  - intake-geopandas
+  - intake-thredds
   - pip:
     - requests-magpie
     - pystac-client
@@ -71,14 +76,3 @@ dependencies:
     # Converts RPN standard files (from Environment Canada) to netCDF files.
     - fstd2nc
 
-# Need:
-
-
-# Maybe good to have:
-  # - intake
-  # - intake-esm
-  # - intake-xarray
-  # - intake-geopandas
-  # - intake-thredds
-  # - jupyter (what good is it here?)
-  # - jupyter_bokeh (is it needed?)

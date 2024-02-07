@@ -16,7 +16,6 @@ RUN apt-get update --yes && \
     # - `apt-get upgrade` is run to patch known vulnerabilities in system packages
     #   as the Ubuntu base image is rebuilt too seldom sometimes (less than once a month)
     apt-get upgrade --yes && \
-    # apt-get install --yes --no-install-recommends gcc libc6-dev make && \
     apt-get install --yes --no-install-recommends build-essential gfortran && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
