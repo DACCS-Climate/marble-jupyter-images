@@ -23,7 +23,15 @@ COPY marble_environment.yml /environment.yml
 USER ${NB_UID}
 RUN set -x && \
     # Installing jupyter lab extensions in the main environment
-    mamba install --yes jupyterlab-git mamba_gator jupytext jupyter-archive jupyter-server-proxy dask-labextension ipywidgets jupyterlab=3.6.7 jupyter_bokeh=3.0.7 && \
+    mamba install --yes jupyterlab-git=0.44.0 \
+    mamba_gator=5.2.1 \
+    jupytext=1.16.1 \
+    jupyter-archive=3.4.0 \
+    jupyter-server-proxy=4.1.0 \
+    dask-labextension=6.2.0 \
+    ipywidgets=8.1.1 \
+    jupyterlab=3.6.7 \
+    jupyter_bokeh=3.0.7 && \
     # Creating a "Marble" environment
     mamba env create -f /environment.yml && \
     mamba clean --all -f -y

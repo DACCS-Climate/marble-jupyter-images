@@ -6,73 +6,73 @@ channels:
 
 dependencies:
   - python=3.11.7
-  - pip
+  - pip=24.0
   # xarray includes: pandas
-  - xarray
-  - netcdf4
-  - pydap
+  - xarray=2024.1.1
+  - netcdf4=1.6.5
+  - pydap=3.4.0
   # birdy incudes: owslib, lxml
-  - birdy
-  - h5netcdf
-  - matplotlib
-  - cartopy
-  - bokeh
-  - dask
-  - flox
-  - cf_xarray
-  - cfgrib
-  - yq
-  - jsonschema
-  - nbval
+  - birdy=0.8.4
+  - h5netcdf=1.3.0
+  - matplotlib=3.8.2
+  - cartopy=0.22.0
+  - bokeh=3.3.4
+  - dask=2024.1.1
+  - flox=0.9.1
+  - cf_xarray=0.8.9
+  - cfgrib=0.9.8.5
+  - yq=3.2.3
+  - jsonschema=4.21.1
+  - nbval=0.10.0
   - jupyterlab=3.6.7
   # Jupyter plugins-------------------------------------------------
   # https:://github.com/jupyterhub/jupyter-server-proxy
-  - jupyter-server-proxy
+  - jupyter-server-proxy=4.1.0
   # https://github.com/dask/dask-labextension
-  - dask-labextension
+  - dask-labextension=6.2.0
   - jupyter_bokeh=3.0.7
-  - pytest
-  - nc-time-axis
-  - aiohttp
-  - scikit-image
-  - ipyleaflet
-  - ipywidgets
-  - regionmask
-  - siphon
-  - gcsfs
-  - zarr
-  - s3fs
-  - paramiko
-  - urlpath
-  - seaborn
-  - statsmodels
-  - pre-commit
+  - pytest=8.0.0
+  - nc-time-axis=1.4.1
+  - aiohttp=3.9.1
+  - scikit-image=0.22.0
+  - ipyleaflet=0.18.2
+  - ipywidgets=8.1.1
+  - regionmask=0.11.0
+  - siphon=0.9
+  - gcsfs=2024.2.0
+  - zarr=2.16.1
+  - s3fs=2024.2.0
+  - paramiko=3.4.0
+  - urlpath=1.2.0
+  - seaborn=0.13.2
+  - statsmodels=0.14.1
+  - pre-commit=3.6.0
   # https://github.com/roocs/clisops
-  - clisops
+  - clisops=0.12.2
   # Universal Regridder for Geospatial Data
   # https://github.com/pangeo-data/xESMF
   # xesmf imcludes: numba, esmpy
-  - xesmf
+  - xesmf=0.8.2
   # Sensitivity Analysis Library
   # https://anaconda.org/conda-forge/salib, https://github.com/SALib/SALib
-  - salib
-  - nodejs
-  - esgf-pyclient
-  - geopy
-  - xlrd
-  - pillow
-  - openpyxl
-  - pyogrio
-  - intake
-  - intake-esm
-  - intake-xarray
-  - intake-geopandas
-  - intake-thredds
+  - salib=1.4.7
+  - nodejs=20.9.0
+  - esgf-pyclient=0.3.1
+  - geopy=2.4.1
+  - xlrd=2.0.1
+  - pillow=10.2.0
+  - openpyxl=3.1.2
+  - pyogrio=0.7.2
+  - intake=2.0.0
+  - intake-esm=2023.11.10
+  - intake-xarray=0.7.0
+  - intake-geopandas=0.4.0
+  - intake-thredds=2022.8.19
   - pip:
-    - requests-magpie
-    - pystac-client
-    - xncml
+    - requests-magpie==0.2.0
+    - pystac-client==0.7.5
+    - xncml==0.4.0
     # https://pypi.org/project/fstd2nc/
     # Converts RPN standard files (from Environment Canada) to netCDF files.
-    - fstd2nc
+    - fstd2nc==0.20231105.1
 
