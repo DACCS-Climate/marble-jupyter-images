@@ -1,5 +1,4 @@
-# ARG ROOT_CONTAINER=quay.io/jupyter/minimal-notebook:python-3.11@sha256:c0454dbeca4146113ea9f8c882d88ba03663105dd4b8ff6b153c066e453a2dd8
-ARG ROOT_CONTAINER=quay.io/jupyter/minimal-notebook:python-3.11
+ARG ROOT_CONTAINER=quay.io/jupyter/minimal-notebook:python-3.11@sha256:c0454dbeca4146113ea9f8c882d88ba03663105dd4b8ff6b153c066e453a2dd8
 
 FROM $ROOT_CONTAINER
 
