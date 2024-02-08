@@ -18,11 +18,9 @@ RUN apt-get update --yes && \
     apt-get install --yes --no-install-recommends build-essential gfortran && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-COPY marble_environment.yml /environment.yml
-
 USER ${NB_UID}
 RUN set -x && \
-    # Installing jupyter lab extensions in the main environment
+    # Installing jupyter lab extensions in the base environment
     mamba install --yes jupyterlab-git=0.44.0 \
     mamba_gator=5.2.1 \
     jupytext=1.16.1 \
@@ -32,7 +30,14 @@ RUN set -x && \
     ipywidgets=8.1.1 \
     jupyterlab=3.6.7 \
     jupyter_bokeh=3.0.7 && \
-    # Creating a "Marble" environment
+    mamba clean --all -f -y
+
+USER root
+COPY marble_environment.yml /environment.yml
+
+USER ${NB_UID}
+RUN set -x && \
+    # Creating the "Marble" environment
     mamba env create -f /environment.yml && \
     mamba clean --all -f -y
 
