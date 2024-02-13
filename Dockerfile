@@ -27,7 +27,7 @@ RUN set -x && \
     jupyter-archive=3.4.0 \
     jupyter-server-proxy=4.1.0 \
     dask-labextension=6.2.0 \
-    ipywidgets=8.1.1 \
+    ipywidgets=8.1.2 \
     jupyterlab=3.6.7 \
     jupyter_bokeh=3.0.7 && \
     mamba clean --all -f -y
