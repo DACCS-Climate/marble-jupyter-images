@@ -44,6 +44,7 @@ ENV PATH="$MAMBA_ROOT_PREFIX/envs/marble/bin:$PATH"
 RUN set -x && \
     git clone https://github.com/crim-ca/weaver.git && \
     cd weaver && \
+    rm -rf .git && \
     make install-pip
 
 # Installing s3fs separately because of issues with weaver dependencies
