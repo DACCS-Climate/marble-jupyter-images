@@ -35,10 +35,23 @@ RUN set -x && \
 USER root
 COPY marble_environment.yml /environment.yml
 
+# Creating the "Marble" environment:
 USER ${NB_UID}
 RUN set -x && \
-    # Creating the "Marble" environment
     mamba env create -f /environment.yml && \
+    mamba clean --all -f -y
+
+# To get the marble version of pip for weaver installation:
+ENV PATH="$MAMBA_ROOT_PREFIX/envs/marble/bin:$PATH"
+# Installing weaver into the Marble environment:
+RUN set -x && \
+    git clone https://github.com/crim-ca/weaver.git && \
+    cd weaver && \
+    make install-pip
+
+# Installing s3fs separately because of issues with weaver dependencies
+RUN set -x && \
+    mamba install -n marble s3fs=2024.2.0 && \
     mamba clean --all -f -y
 
 USER root
@@ -48,7 +61,7 @@ RUN mkdir -p /usr/local/share/jupyter
 RUN fix-permissions /usr/local/share/jupyter
 
 USER ${NB_UID}
-ENV PATH="$MAMBA_ROOT_PREFIX/envs/marble/bin:$PATH"
+# ENV PATH="$MAMBA_ROOT_PREFIX/envs/marble/bin:$PATH"
 RUN python -m ipykernel install --name Marble
 
 # For import xesmf since esmf-8.4.0, see
