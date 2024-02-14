@@ -73,5 +73,7 @@ USER root
 RUN fix-permissions "/home/${NB_USER}/.ipython"
 RUN fix-permissions "/home/${NB_USER}/.cache"
 
+COPY .bashrc "/home/${NB_USER}/.bashrc"
+RUN chown ${NB_USER}:${NB_GID} "/home/${NB_USER}/.bashrc"
 
 USER ${NB_UID}
