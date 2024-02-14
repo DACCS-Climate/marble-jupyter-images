@@ -5,6 +5,11 @@ MINIMAL_CONTAINER_NAME := testminimal
 # Test container being developed.
 TEST_IMAGE_TAG := marble.v1
 TEST_CONTAINER_NAME := testmarblecontatiner
+
+DOCKER_REPO ?= marbleclimate/marble-jupyter-images
+TAG ?= v1.1.0
+DEPLOYMENT_IMAGE = $(DOCKER_REPO):$(TAG)
+
 DOCKER_FLAGS ?= 
 
 runminimal:
@@ -28,6 +33,11 @@ run:
 stop:
 	docker stop ${TEST_CONTAINER_NAME}
 
+build-deploy:
+	docker build $(DOCKER_FLAGS) --tag $(DEPLOYMENT_IMAGE) . 
+
+deploy:
+	docker image push $(DEPLOYMENT_IMAGE)
 
 token:
 	echo "Token:" $(shell docker logs ${TEST_CONTAINER_NAME} 2>&1 | grep token | head -n 1 | cut -d "=" -f 2)
@@ -36,4 +46,4 @@ ssh:
 	docker exec -it ${TEST_CONTAINER_NAME} bash
 
 
-.SILENT: token build sshminimal ssh
+.SILENT: token build build-deploy sshminimal ssh
