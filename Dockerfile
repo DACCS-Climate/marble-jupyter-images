@@ -32,13 +32,10 @@ RUN set -x && \
     jupyter_bokeh=3.0.7 && \
     mamba clean --all -f -y
 
-USER root
-COPY marble_environment.yml /environment.yml
-
 # Creating the "Marble" environment:
-USER ${NB_UID}
+COPY marble_environment.yml /tmp/environment.yml
 RUN set -x && \
-    mamba env create -f /environment.yml && \
+    mamba env create -f /tmp/environment.yml && \
     mamba clean --all -f -y
 
 # To get the marble version of pip for weaver installation:
