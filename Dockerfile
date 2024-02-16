@@ -71,7 +71,7 @@ USER root
 RUN fix-permissions "/home/${NB_USER}/.ipython"
 RUN fix-permissions "/home/${NB_USER}/.cache"
 
-COPY .bashrc "/home/${NB_USER}/.bashrc"
-RUN chown ${NB_USER}:${NB_GID} "/home/${NB_USER}/.bashrc"
+RUN echo "PS1='\[\033[01;32m\]marbleUser\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] >>> '" >> /etc/bash.bashrc
+
 
 USER ${NB_UID}
