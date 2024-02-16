@@ -1,35 +1,39 @@
-# Minimal notebook. For testing with a reference.
-MINIMAL_NOTEBOOK_IMAGE := quay.io/jupyter/minimal-notebook:python-3.11
-MINIMAL_CONTAINER_NAME := testminimal
+ifeq ($(MODE), prod)
+    DOCKER_REPO ?= marbleclimate/marble-jupyter-images
+    TAG ?= 1.1.0
+    IMAGE_TAG := $(DOCKER_REPO):$(TAG)
+    DEPLOY_IMAGE_TAG := $(DOCKER_REPO):$(TAG)
+    CONTAINER_NAME := marblecontatiner
+else ifeq ($(MODE), minimal)
+	# Minimal notebook. For testing with a reference.
+    IMAGE_TAG := quay.io/jupyter/minimal-notebook:python-3.11
+    CONTAINER_NAME := testminimal
+else
+	# for local tests
+    IMAGE_TAG := testmarble
+    CONTAINER_NAME := testmarblecontatiner
+endif
 
-# Test container being developed.
-TEST_IMAGE_TAG := testmarble
-TEST_CONTAINER_NAME := testmarblecontatiner
 
-runminimal:
-	docker run -d -p 10000:8888 --name ${MINIMAL_CONTAINER_NAME} ${MINIMAL_NOTEBOOK_IMAGE}
-
-stopminimal:
-	docker stop ${MINIMAL_CONTAINER_NAME}
-
-minimaltoken:
-	docker logs ${MINIMAL_CONTAINER_NAME} 2>&1 | grep "token"
-
-sshminimal:
-	docker exec -it ${MINIMAL_CONTAINER_NAME} bash
+DOCKER_BUILD_FLAGS ?= 
 
 build:
-	# docker build --no-cache --tag ${TEST_IMAGE_TAG} .
-	docker build --tag ${TEST_IMAGE_TAG} .
+	docker build $(DOCKER_BUILD_FLAGS) --tag ${IMAGE_TAG} . 
 
 run:
-	docker run -d --rm -p 10001:8888 --name ${TEST_CONTAINER_NAME} ${TEST_IMAGE_TAG}
+	docker run -d --rm -p 10001:8888 -v "${PWD}/jupyter_bokeh_tests":/home/jovyan/work/jupyter_bokeh_tests --name ${CONTAINER_NAME} ${IMAGE_TAG}
+
+stop:
+	docker stop ${CONTAINER_NAME}
+
+deploy:
+	docker image push $(DEPLOY_IMAGE_TAG)
 
 token:
-	echo "Token:" $(shell docker logs ${TEST_CONTAINER_NAME} 2>&1 | grep token | head -n 1 | cut -d "=" -f 2)
+	echo "Token:" $(shell docker logs ${CONTAINER_NAME} 2>&1 | grep token | head -n 1 | cut -d "=" -f 2)
 
 ssh:
-	docker exec -it ${TEST_CONTAINER_NAME} bash
+	docker exec -it ${CONTAINER_NAME} bash
 
 
-.SILENT: token build sshminimal ssh
+.SILENT: token build ssh stop
