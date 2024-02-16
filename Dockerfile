@@ -59,7 +59,6 @@ RUN mkdir -p /usr/local/share/jupyter
 RUN fix-permissions /usr/local/share/jupyter
 
 USER ${NB_UID}
-# ENV PATH="$MAMBA_ROOT_PREFIX/envs/marble/bin:$PATH"
 RUN python -m ipykernel install --name Marble
 
 # For import xesmf since esmf-8.4.0, see
