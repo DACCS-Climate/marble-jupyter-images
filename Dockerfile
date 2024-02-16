@@ -70,7 +70,7 @@ USER root
 RUN fix-permissions "/home/${NB_USER}/.ipython"
 RUN fix-permissions "/home/${NB_USER}/.cache"
 
-RUN echo "PS1='\[\033[01;32m\]${JUPYTERHUB_USER}\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] >>> '" >> /etc/bash.bashrc
+RUN echo 'PS1="\[\033[01;32m\]${JUPYTERHUB_USER}\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] >>> "' >> /etc/bash.bashrc
 RUN echo 'cd ${HOME}' >> /etc/bash.bashrc
 
 USER ${NB_UID}
