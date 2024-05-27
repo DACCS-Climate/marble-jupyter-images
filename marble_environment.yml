@@ -74,5 +74,5 @@ dependencies:
     # https://pypi.org/project/fstd2nc/
     # Converts RPN standard files (from Environment Canada) to netCDF files.
     - fstd2nc==0.20231105.1
-    - marble-client==1.1.1
+    - marble-client==1.1.2
 
