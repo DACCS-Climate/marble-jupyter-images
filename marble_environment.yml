@@ -5,73 +5,71 @@ channels:
   - defaults
 
 dependencies:
-  - python=3.11.7
-  - pip=24.0
+  - python=3.12.11
+  - pip=25.2
   # xarray includes: pandas
-  - xarray=2024.1.1
-  - netcdf4=1.6.5
-  - pydap=3.4.0
+  - xarray=2025.9.1
+  - netcdf4=1.7.2
   # birdy incudes: owslib, lxml
-  - birdy=0.8.4
-  - h5netcdf=1.3.0
-  - matplotlib=3.8.2
-  - cartopy=0.22.0
-  - bokeh=3.3.4
-  - dask=2024.2.0
-  - flox=0.9.2
-  - cf_xarray=0.8.9
-  - cfgrib=0.9.10.4
-  - yq=3.2.3
-  - jsonschema=4.21.1
-  - nbval=0.10.0
-  - jupyterlab=3.6.7
+  - birdy=0.9.1
+  - h5netcdf=1.6.4
+  - matplotlib=3.10.5
+  - cartopy=0.25.0
+  - bokeh=3.7.3
+  - dask=2025.7.0
+  - flox=0.9.11
+  - cf_xarray=0.10.6
+  - cfgrib=0.9.15.0
+  - yq=3.4.3
+  - jsonschema=4.25.0
+  - nbval=0.11.0
+  - jupyterlab=4.4.5
   # Jupyter plugins-------------------------------------------------
   # https:://github.com/jupyterhub/jupyter-server-proxy
-  - jupyter-server-proxy=4.1.0
+  - jupyter-server-proxy=4.4.0
   # https://github.com/dask/dask-labextension
-  - dask-labextension=6.2.0
-  - jupyter_bokeh>=3.0.0
-  - pytest=8.0.0
+  - dask-labextension=7.0.0
+  - jupyter_bokeh=4.0.5
   - nc-time-axis=1.4.1
-  - aiohttp=3.9.3
-  - scikit-image=0.22.0
-  - ipyleaflet=0.18.2
-  - ipywidgets=8.1.2
-  - regionmask=0.11.0
-  - siphon=0.9
-  - gcsfs=2024.2.0
-  - zarr=2.16.1
-  - paramiko=3.4.0
+  - aiohttp=3.12.15
+  - scikit-image=0.25.2
+  - ipyleaflet=0.20.0
+  - ipywidgets=8.1.7
+  - regionmask=0.13.0
+  - siphon=0.10.0
+  - gcsfs=2025.7.0
+  - paramiko=3.5.1
   - urlpath=1.2.0
   - seaborn=0.13.2
-  - statsmodels=0.14.1
-  - pre-commit=3.6.1
+  - statsmodels=0.14.5
+  - zarr=3.1.3
   # https://github.com/roocs/clisops
-  - clisops=0.12.2
+  - clisops=0.16.2
   # Universal Regridder for Geospatial Data
   # https://github.com/pangeo-data/xESMF
   # xesmf imcludes: numba, esmpy
-  - xesmf=0.8.2
+  - xesmf=0.8.10
   # Sensitivity Analysis Library
   # https://anaconda.org/conda-forge/salib, https://github.com/SALib/SALib
-  - salib=1.4.7
-  - nodejs=20.9.0
+  - salib=1.5.1
+  - nodejs=24.4.1
   - esgf-pyclient=0.3.1
   - geopy=2.4.1
   - xlrd=2.0.1
-  - pillow=10.2.0
-  - openpyxl=3.1.2
-  - pyogrio=0.7.2
-  - intake=2.0.1
-  - intake-esm=2023.11.10
+  - pillow=11.3.0
+  - openpyxl=3.1.5
+  - intake=2.0.8
+  - intake-esm=2025.7.9 # includes pydap
   - intake-xarray=0.7.0
   - intake-geopandas=0.4.0
-  - intake-thredds=2022.8.19
+  - intake-thredds=2025.2.18
+  - s3fs=2025.7.0
   - pip:
-    - requests-magpie==0.2.0
-    - pystac-client==0.7.5
-    - xncml==0.4.0
+    - requests-magpie==0.3.0
+    - pystac-client==0.9.0
+    - xncml==0.5.0
+    - pyogrio==0.11.1 # moved to pip install because conda version doesn't support python3.12 for some reason
     # https://pypi.org/project/fstd2nc/
     # Converts RPN standard files (from Environment Canada) to netCDF files.
-    - fstd2nc==0.20231105.1
-    - marble-client==1.2.0
+    - fstd2nc==0.20250731.0
+    - marble-client==1.3.0

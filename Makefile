@@ -1,6 +1,6 @@
 ifeq ($(MODE), prod)
     DOCKER_REPO ?= marbleclimate/marble-jupyter-image
-    TAG ?= v1.1.2
+    TAG ?= v1.2.0
     IMAGE_TAG := $(DOCKER_REPO):$(TAG)
     DEPLOY_IMAGE_TAG := $(DOCKER_REPO):$(TAG)
     CONTAINER_NAME := marblecontatiner
