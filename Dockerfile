@@ -1,4 +1,4 @@
-ARG ROOT_CONTAINER=quay.io/jupyter/minimal-notebook:python-3.12.11@sha256:da8df90b5966a8976922312cd1744900daad330fc59a31807f9ca234779727b9
+ARG ROOT_CONTAINER=quay.io/jupyter/minimal-notebook:python-3.13.18@sha256:b97cc9adde649c3b7b8209f4aa17996b7ec0df8b5424f22aae50ce1329d900c8
 
 FROM $ROOT_CONTAINER
 
@@ -35,14 +35,14 @@ RUN set -x && \
     # Installing jupyter lab extensions in the base environment and install weaver in the base environment so that it's pinned
     # packages don't conflict with the marble env.
     mamba install --yes jupyterlab-git=0.51.2 \
-    mamba_gator=6.0.1 \
-    jupytext=1.17.2 \
-    jupyter-archive=3.4.0 \
-    jupyter-server-proxy=4.4.0 \
+    jupytext=1.19.7 \
+    jupyter-archive=3.5.1 \
+    jupyter-server-proxy=4.6.1 \
     dask-labextension=7.0.0 \
-    ipywidgets=8.1.7 \
-    jupyterlab=4.4.5 \
-    jupyter_bokeh=4.0.5 && \
+    ipywidgets=8.1.9 \
+    jupyterlab=4.6.6 \
+    jupyter_bokeh=4.1.0 && \
+    nodejs=26.13.1 && \
     pip install git+https://github.com/crim-ca/weaver.git && \
     mamba env create -f /tmp/environment.yml && \
     mamba clean --all -f -y && \
